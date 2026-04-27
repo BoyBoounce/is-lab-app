@@ -11,7 +11,6 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository_owner }}/islabapp
 
 jobs:
   build-test-publish:
@@ -39,9 +38,11 @@ jobs:
       - name: Run tests
         run: dotnet test IsLabApp.sln --configuration Release --no-build
 
-      - name: Set short SHA
+      - name: Set variables
         id: vars
-        run: echo "short_sha=${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
+        run: |
+          echo "short_sha=${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
+          echo "owner_lc=${GITHUB_REPOSITORY_OWNER,,}" >> $GITHUB_OUTPUT
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -63,5 +64,5 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: |
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.vars.outputs.short_sha }}
+            ghcr.io/${{ steps.vars.outputs.owner_lc }}/islabapp:latest
+            ghcr.io/${{ steps.vars.outputs.owner_lc }}/islabapp:${{ steps.vars.outputs.short_sha }}
