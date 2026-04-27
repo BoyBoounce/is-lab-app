@@ -1,0 +1,40 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: postgres
+    environment:
+      POSTGRES_DB: IsLabDb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "127.0.0.1:5432:5432"
+    networks:
+      - is-net
+    restart: unless-stopped
+
+  app:
+    build:
+      context: /home/boybounce/is-labs/IsLabApp
+      dockerfile: Dockerfile
+    container_name: isapp
+    depends_on:
+      - postgres
+    environment:
+      ASPNETCORE_URLS: http://0.0.0.0:8080
+      ASPNETCORE_ENVIRONMENT: Production
+      App__Name: IsLabApp
+      App__Version: ${APP_VERSION}
+      ConnectionStrings__Postgres: Host=postgres;Port=5432;Database=IsLabDb;Username=postgres;Password=${POSTGRES_PASSWORD}
+    ports:
+      - "127.0.0.1:5000:8080"
+    networks:
+      - is-net
+    restart: unless-stopped
+
+networks:
+  is-net:
+
+volumes:
+  postgres-data:
