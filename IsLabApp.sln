@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsLabApp", "IsLabApp.csproj", "{88211AA5-BCB8-4822-9AC6-EB2F9CCB9D76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsLabApp.Tests", "IsLabApp.Tests\IsLabApp.Tests.csproj", "{3655B36E-9089-4F89-AEC9-7BF7E687F3DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{88211AA5-BCB8-4822-9AC6-EB2F9CCB9D76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88211AA5-BCB8-4822-9AC6-EB2F9CCB9D76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88211AA5-BCB8-4822-9AC6-EB2F9CCB9D76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88211AA5-BCB8-4822-9AC6-EB2F9CCB9D76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3655B36E-9089-4F89-AEC9-7BF7E687F3DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3655B36E-9089-4F89-AEC9-7BF7E687F3DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3655B36E-9089-4F89-AEC9-7BF7E687F3DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3655B36E-9089-4F89-AEC9-7BF7E687F3DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

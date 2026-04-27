@@ -10,4 +10,10 @@
     <PackageReference Include="Npgsql" Version="10.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="IsLabApp.Tests/**/*.cs" />
+    <EmbeddedResource Remove="IsLabApp.Tests/**/*" />
+    <None Remove="IsLabApp.Tests/**/*" />
+  </ItemGroup>
+
 </Project>
